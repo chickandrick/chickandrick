@@ -1,0 +1,21 @@
+{{ partial "header.html" . }}
+<main>
+	<header class="min">
+		<h1>Популярные сейчас игры на&nbsp;Android и&nbsp;iOS</h1>
+	</header>
+	<article class="min">
+		<div class="main rating">
+			{{ range .Data.Pages.ByWeight }}
+				<div class="rating-game">
+					<div class="rating-game_logo"><a href="{{ .Permalink }}" rel="nofollow"><img src="{{ .Permalink }}logo.jpg"></a></div>
+					<div class="rating-game_name">
+						<h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+						<p>{{ .Description }}</p>
+					</div>
+				</div>
+			{{ end }}
+		</div>
+	</article>
+	{{ partial "share.html" . }}
+</main>
+{{ partial "footer.html" . }}

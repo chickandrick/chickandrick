@@ -1,0 +1,27 @@
+contentDir =		"content"
+layoutDir =			"layouts"
+publishDir =		"public"
+enableRobotsTXT =	true
+
+buildDrafts =		false
+enableEmoji =       true
+
+baseURL =			"http://chickenrick.com"
+title =				"Цыплёнок Рик"
+languageCode =		"ru-ru"
+theme =				"space"
+
+[taxonomies]
+	tag =			"tags"
+	category =		"categories"
+
+[[related.indices]]
+	name  =			"categories"
+	weight =		3
+
+[[related.indices]]
+	name  =			"tags"
+	weight =		3
+
+[permalinks]
+	post = "/:section/:filename/"

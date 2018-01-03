@@ -1,0 +1,17 @@
+{{ $related := .Site.RegularPages.Related . | first 4 }}
+{{ with $related }}
+<section class="min related">
+	<h2 id="related">Похожие игры</h2>
+	<div class="list">
+		{{ range . }}
+			<div class="list-game">
+				<div class="list-game_logo"><a href="{{ .Permalink }}" rel="nofollow"><img src="{{ .Permalink }}logo.jpg"></a></div>
+				<div class="list-game_name">
+					<h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+					<p>{{ .Description }}</p>
+				</div>
+			</div>
+		{{ end }}
+	</div>
+</section>
+{{ end }}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+	<title>{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}{{ if isset .Params "seotitle" }}{{ .Params.seotitle }}{{ else }}{{ if eq $url "/" }}{{ .Site.Title }}{{ else }}{{ if .Params.heading }}{{ .Params.heading }}{{ else }}{{ .Title }}{{ end }}{{ end }}{{ end }}</title>
+	<meta name="description" content="{{ if isset .Params "seodescription" }}{{ .Params.seodescription }}{{ else }}{{ .Params.description }}{{ end }}">
+
+	<meta property="og:title" content="{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}{{ if isset .Params "seotitle" }}{{ .Params.seotitle }}{{ else }}{{ if eq $url "/" }}{{ .Site.Title }}{{ else }}{{ if .Params.heading }}{{ .Params.heading }}{{ else }}{{ .Title }}{{ end }}{{ end }}{{ end }}">
+	<meta property="og:description" content="{{ if isset .Params "seodescription" }}{{ .Params.seodescription }}{{ else }}{{ .Params.description }}{{ end }}">
+	<meta property="og:image" content="{{ .Permalink }}logo.jpg">
+	<meta property="og:site_name" content="{{ .Site.Title }}">
+	{{ if .IsHome }}<meta property="og:type" content="website">{{ else }}<meta property="og:type" content="article">{{ end }}
+	<meta property="og:url" content="{{ .Permalink }}">
+
+	<meta property="twitter:title" content="{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}{{ if eq $url "/" }}{{ .Site.Title }}{{ else }}{{ if .Params.heading }}{{ .Params.heading }}{{ else }}{{ .Title }}{{ end }}{{ end }}">
+	<meta property="twitter:url" content="{{ .Permalink }}">
+	<meta property="twitter:image" content="{{ .Permalink }}logo.jpg">
+	<meta property="vk:image" content="{{ .Permalink }}logo.jpg">
+
+	<link rel="canonical" href="{{ .Permalink }}">
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="stylesheet" href="{{ .Site.BaseURL }}/source/css/main.css">
+	<link rel="stylesheet" href="{{ .Site.BaseURL }}/source/css/fotorama.css">
+	<link rel="stylesheet" href="{{ .Site.BaseURL }}/source/css/likely.css">
+	<script src="{{ .Site.BaseURL }}/source/js/jquery-3.2.1.min.js"></script>
+	<script src="{{ .Site.BaseURL }}/source/js/pseudohover.js"></script>
+	<script src="{{ .Site.BaseURL }}/source/js/fotorama.js"></script>
+	<script src="{{ .Site.BaseURL }}/source/js/likely.js"></script>
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108555523-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-108555523-1');
+	</script>
+</head>
+<body>

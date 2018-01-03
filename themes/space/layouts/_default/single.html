@@ -1,0 +1,43 @@
+{{ partial "header.html" . }}
+<main>
+	<header class="min">
+		<div class="intro">
+			<div class="logo"><img src="{{ .Permalink }}logo.jpg"></div>
+			<div class="name">
+				<h1>{{ .Title }}</h1>
+				{{ if isset .Params "description" }}<p>{{ .Description }}</p>{{ end }}
+				{{ partial "download.html" . }}
+			</div>
+		</div>
+	</header>
+	<div class="min">
+	{{ if isset .Params "intro1" }}
+		<div class="gallery">
+			<div class="fotorama">
+			{{ if isset .Params "intro2" }}
+				{{ if isset .Params "intro1" }}<img src="{{ .Permalink}}{{ index .Params "intro1" }}">{{ end }}
+				{{ if isset .Params "intro2" }}<img src="{{ .Permalink}}{{ index .Params "intro2" }}">{{ end }}
+				{{ if isset .Params "intro3" }}<img src="{{ .Permalink}}{{ index .Params "intro3" }}">{{ end }}
+				{{ if isset .Params "intro4" }}<img src="{{ .Permalink}}{{ index .Params "intro4" }}">{{ end }}
+				{{ if isset .Params "intro5" }}<img src="{{ .Permalink}}{{ index .Params "intro5" }}">{{ end }}
+				{{ if isset .Params "intro6" }}<img src="{{ .Permalink}}{{ index .Params "intro6" }}">{{ end }}
+				{{ if isset .Params "intro7" }}<img src="{{ .Permalink}}{{ index .Params "intro7" }}">{{ end }}
+				{{ if isset .Params "intro8" }}<img src="{{ .Permalink}}{{ index .Params "intro8" }}">{{ end }}
+				{{ if isset .Params "intro9" }}<img src="{{ .Permalink}}{{ index .Params "intro9" }}">{{ end }}
+			{{ else }}
+				{{ if isset .Params "intro1" }}<img src="{{ .Permalink}}{{ index .Params "intro1" }}">{{ end }}
+			{{ end }}
+			</div>
+		</div>
+	{{ end }}
+	</div>
+	<article class="min">
+		{{ .Content }}
+		{{ partial "download.html" . }}
+	</article>
+	{{ partial "related.html" . }}
+		<div class="min scroll"><p><a href="#" class="thispage underline"><u>Обзор игры {{ .Title }}</u>&nbsp;↑</a></p></div>
+		{{ partial "googleads.html" . }}
+	{{ partial "share.html" . }}
+</main>
+{{ partial "footer.html" . }}
